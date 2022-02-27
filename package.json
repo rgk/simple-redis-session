@@ -1,0 +1,11 @@
+{
+  "name": "simple-redis-session",
+  "version": "1.0.0",
+  "description": "A simple redis session class.",
+  "main": "session.js",
+  "author": "rgk",
+  "license": "MIT",
+  "dependencies": {
+    "redis": "^4.0.4"
+  }
+}
