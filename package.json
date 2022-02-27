@@ -5,6 +5,7 @@
   "main": "session.js",
   "author": "rgk",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "redis": "^4.0.4"
   }
