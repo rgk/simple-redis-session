@@ -10,13 +10,17 @@ class Session() {
       this.client = createClient();
     }
 
-    if (clearClient) this.client.flushall();
+    if (clearClient) this.clearSessions();
 
     return this.client;
   }
 
   async deleteSession(sessionId) {
     return await this.client.del(sessionId);
+  }
+
+  async clearSessions() {
+    return await this.client.flushall();
   }
 
   async getSession(sessionId) {
