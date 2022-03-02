@@ -1,7 +1,7 @@
 import { createClient } from 'redis';
 
 class Session() {
-  constructor(url = false, clearClient = false) {
+  async constructor(url = false, clearClient = false) {
     if (url) {
       this.client = createClient({
         url: url
@@ -10,7 +10,7 @@ class Session() {
       this.client = createClient();
     }
 
-    if (clearClient) this.clearSessions();
+    if (clearClient) await this.clearSessions();
 
     return this.client;
   }
@@ -27,8 +27,8 @@ class Session() {
     return await this.client.get(sessionId);
   }
 
-  async setSession(sessionId, session) {
-    if (await this.client.get(sessionId)) return;
+  async setSession(sessionId, session, replace = false) {
+    if (await this.client.get(sessionId) && !replace) return;
 
     return await this.client.set(sessionId, session);
   }
