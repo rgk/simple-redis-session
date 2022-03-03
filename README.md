@@ -1,3 +1,4 @@
 # simple-redis-session
 Simple redis based sessions.
-Good for storing session ids with Express.js for example.
+
+Good for storing and retriving session data quickly. Can work with Express.js sessions.
