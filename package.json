@@ -6,6 +6,11 @@
   "author": "rgk",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rgk/simple-redis-session.git"
+  },
+  "homepage": "https://github.com/rgk/simple-redis-session",
   "dependencies": {
     "redis": "^4.0.4"
   },
