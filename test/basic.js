@@ -21,3 +21,14 @@ test('deleteSession should delete session data.', (t) => {
 
   t.end();
 });
+
+test('clearSessions should delete all session data.', (t) => {
+  const session = new Session();
+  
+  session.setSession(1, 123);
+  session.clearSessions();
+
+  t.deepEqual(session.getSession(1), null);
+
+  t.end();
+});
