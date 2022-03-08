@@ -10,6 +10,8 @@ class Session() {
       this.client = createClient();
     }
 
+    if (!this.client) return false;
+
     if (clearClient) await this.clearSessions();
 
     return this.client;
