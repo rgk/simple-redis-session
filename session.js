@@ -1,6 +1,6 @@
 import { createClient } from 'redis';
 
-class Session() {
+export default class TreeSanitizer {
   async constructor(url = false, clearClient = false) {
     if (url) {
       this.client = createClient({
@@ -35,5 +35,3 @@ class Session() {
     return await this.client.set(sessionId, session);
   }
 }
-
-export default Session;
