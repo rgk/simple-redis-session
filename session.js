@@ -1,7 +1,17 @@
 import { createClient } from 'redis';
 
-export default class TreeSanitizer {
+export default class SRS {
   async constructor(url = false, clearClient = false) {
+    await this.connect(url);
+
+    if (!this.client) return false;
+
+    if (clearClient) await this.clearSessions();
+
+    return this.client;
+  }
+
+  async connect(url = false) {
     if (url) {
       this.client = createClient({
         url: url
@@ -9,10 +19,6 @@ export default class TreeSanitizer {
     } else {
       this.client = createClient();
     }
-
-    if (!this.client) return false;
-
-    if (clearClient) await this.clearSessions();
 
     return this.client;
   }
