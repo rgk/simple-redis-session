@@ -23,12 +23,16 @@ export default class SRS {
     return this.client;
   }
 
+  async clearSessions() {
+    return await this.client.flushall();
+  }
+
   async deleteSession(sessionId) {
     return await this.client.del(sessionId);
   }
 
-  async clearSessions() {
-    return await this.client.flushall();
+  async disconnect() {
+    return await this.client.disconnect();
   }
 
   async getSession(sessionId) {
