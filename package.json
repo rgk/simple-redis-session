@@ -2,7 +2,7 @@
   "name": "simple-redis-session",
   "version": "1.0.0",
   "description": "A simple redis session class.",
-  "main": "session.js",
+  "main": "index.js",
   "author": "rgk",
   "license": "MIT",
   "type": "module",
@@ -12,9 +12,9 @@
   },
   "homepage": "https://github.com/rgk/simple-redis-session",
   "dependencies": {
-    "redis": "^4.0.4"
+    "redis": "^4.1.0"
   },
   "devDependencies": {
-    "tape": "^5.5.2"
+    "tape": "^5.5.3"
   }
 }
