@@ -1,5 +1,5 @@
 import test from 'tape';
-import Session from '../batch.js';
+import Session from '../index.js';
 
 test('getSession should return session data.', (t) => {
   const session = new Session();
