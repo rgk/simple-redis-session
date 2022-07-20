@@ -39,9 +39,13 @@ export default class SRS {
     return await this.client.get(sessionId);
   }
 
-  async setSession(sessionId, session, replace = false) {
-    if (await this.client.get(sessionId) && !replace) return;
+  async setSession(sessionId, session, expire = 0, replace = false) {
+    const params = [ sessionId, session ];
 
-    return await this.client.set(sessionId, session);
+    if (expire) params.push('ex', expire);
+
+    if (replace) params.push('nx');
+
+    return await this.client.set(...params);
   }
 }
