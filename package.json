@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/rgk/simple-redis-session",
   "dependencies": {
-    "redis": "^4.2.0"
+    "redis": "^4.3.0"
   },
   "devDependencies": {
     "tape": "^5.5.3"
