@@ -11,16 +11,8 @@ export default class SRS {
     return this.client;
   }
 
-  async connect(url = false) {
-    if (url) {
-      this.client = createClient({
-        url: url
-      });
-    } else {
-      this.client = createClient();
-    }
-
-    return this.client;
+  async connect(options = false) {
+    return this.client = createClient(options || {});
   }
 
   async clearSessions() {
@@ -42,9 +34,10 @@ export default class SRS {
   async setSession(sessionId, session, expire = 0, replace = false) {
     const params = [ sessionId, session ];
 
-    if (expire) params.push('ex', expire);
+    if (expire) params.push('EX', expire);
 
-    if (replace) params.push('nx');
+    // If replace is true, return session getting replaced, otherwise do not let it be overwritten.
+    (replace) ? params.push('GET') : params.push('NX');
 
     return await this.client.set(...params);
   }
